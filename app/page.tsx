@@ -1,15 +1,7 @@
 import { PropsWithChildren } from "react";
 import { categories, projects } from "../common/data";
-
-const columnHeaders = ["Name", "Description", "Categories"];
-
-const Pill = (props: PropsWithChildren) => {
-  return (
-    <span className="p-2 px-3 m-2 rounded-2xl whitespace-nowrap bg-gray-700">
-      {props.children}
-    </span>
-  );
-};
+import Image from "next/image";
+import Gallery from "../components/gallery";
 
 export default function Home() {
   return (
@@ -21,45 +13,7 @@ export default function Home() {
           <h3>A collection of modern developer tools</h3>
           <br />
         </div>
-        <div className="border border-gray-500 mt-4 rounded border-opacity-50 overflow-auto max-h-screen">
-          <table className="w-full relative inline-block" rules="rows">
-            <thead
-              style={{ backgroundColor: "#14151b" }}
-              className="sticky top-0"
-            >
-              <tr>
-                {columnHeaders.map((el) => (
-                  <th key={el} className="p-4 font-mono">
-                    <p>{el}</p>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {projects.map((p) => (
-                <tr key={p.id} className="border border-x-0 border-gray-700">
-                  <td>
-                    <p>{p.name}</p>
-                  </td>
-                  <td>
-                    <p>{p.description}</p>
-                  </td>
-                  <td>
-                    {p.categoryIds.map((categoryId) => (
-                      <div key={categoryId} className="inline-flex">
-                        <Pill>
-                          <p className="text-xs">
-                            {categories[categoryId].name}
-                          </p>
-                        </Pill>
-                      </div>
-                    ))}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <Gallery projects={projects} />
       </div>
     </main>
   );
