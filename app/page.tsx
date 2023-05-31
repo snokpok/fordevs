@@ -18,7 +18,7 @@ const Header = () => {
 const KbdTips = () => {
   return (
     <div>
-      <p className="text-gray-500 text-xs italic leading-7">Press <Kbd>⌘</Kbd> + <Kbd>Left Mouse</Kbd> to open any project's website in another tab.</p>
+      <p className="text-gray-500 text-xs italic leading-7">Press <Kbd>⌘</Kbd> + <Kbd>Left Mouse</Kbd> to open any project{"'"}s website in another tab.</p>
     </div>
   )
 }
