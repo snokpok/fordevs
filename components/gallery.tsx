@@ -5,7 +5,7 @@ import { Project } from "../common/data";
 import Image from "next/image";
 import Link from "next/link";
 import Fuse from "fuse.js";
-import { MagnifyingGlassIcon, ArrowTopRightIcon } from "@radix-ui/react-icons";
+import {ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { useKeyboard } from "@/hooks/use-keyboard";
 
 const ProjectCard = (props: {
@@ -15,15 +15,20 @@ const ProjectCard = (props: {
 }) => {
   const { currentKey } = useKeyboard()
   const pressingCmd = currentKey === "Meta";
+  const [mouseOn, setMouseOn] = useState(false);
 
   return (
-    <Link href={pressingCmd ? props.websiteUrl : ""}>
-      <button className={`cursor-default ${pressingCmd ? "cursor-pointer" : ""}`}>
+    <Link href={props.websiteUrl} passHref target="_blank">
+      <button className={`cursor-pointer`} onMouseEnter={() => {
+        setMouseOn(true)
+      }} onMouseLeave={() => {
+        setMouseOn(false);
+      }}>
         <div
           className={`relative bg-gray-950 flex items-center border border-gray-600 gap-3 shadow-md rounded-md hover:outline hover:outline-1 hover:outline-slate-700 hover:shadow-xl transition hover:-translate-y-1 py-3 px-4 ${pressingCmd ? "hover:bg-cyan-950" : ""
             } shadow-inner`}
         >
-          {pressingCmd && 
+          {mouseOn && 
             (
               <span className="absolute -top-2 -right-2 bg-cyan-800 p-1 rounded-full"><ArrowTopRightIcon /></span>
             )

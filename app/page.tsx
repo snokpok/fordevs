@@ -1,7 +1,7 @@
 import { Kbd } from "@/components/kbd";
 import { projects } from "../common/data";
 import Gallery from "../components/gallery";
-import { TwitterLogoIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
 const Header = () => {
@@ -18,7 +18,7 @@ const Header = () => {
 const KbdTips = () => {
   return (
     <div>
-      <p className="text-gray-500 text-xs italic leading-7">Press <Kbd>⌘</Kbd> + <Kbd>Left Mouse</Kbd> to open website in another tab.</p>
+      <p className="text-gray-500 text-xs italic leading-7">Press <Kbd>⌘</Kbd> + <Kbd>Left Mouse</Kbd> to open any project's website in another tab.</p>
     </div>
   )
 }
@@ -37,12 +37,19 @@ const Footer = () => {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-10">
-      <div className="text-center">
-        <Header />
-        <KbdTips />
-        <br />
-        <Gallery projects={projects} />
+    <main className="flex min-h-screen flex-col justify-between items-center p-10">
+      <div className="flex flex-col">
+        <div className="flex self-end mx-10">
+          <Link href={"https://github.com/snokpok/fordevs"} passHref target="_blank" className="hover:animate-pulse">
+            <GitHubLogoIcon width={30} height={30}/>
+          </Link>
+        </div>
+        <div className="text-center">
+          <Header />
+          {/*<KbdTips />*/}
+          <br />
+          <Gallery projects={projects} />
+        </div>
       </div>
       <Footer />
     </main>
