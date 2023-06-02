@@ -32,8 +32,8 @@ export interface Project {
   name: string;
   description: string;
   categoryIds: string[];
-  website?: string;
-  imgPath?: string;
+  website: string;
+  imgPath: string;
 }
 
 export const projects: Project[] = [
