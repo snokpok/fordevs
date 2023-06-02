@@ -1,8 +1,11 @@
+import { InputDescription } from "@mantine/core/lib/Input/InputDescription/InputDescription";
+
 interface Category {
   name: string;
 }
 
 export const categories: Record<string, Category> = {
+  saas: { name: "Software-as-a-Service (SaaS)" },
   paas: { name: "Platform-as-a-Service (PaaS)" },
   iaas: { name: "Infrastructure-as-a-Service (IaaS)" },
   notifications: { name: "Notifications service" },
@@ -12,12 +15,18 @@ export const categories: Record<string, Category> = {
   "hosting": { name: "Web app hosting" },
   database: { name: "Database-as-a-Service" },
   api: { name: "API-as-a-Service" },
-  storage: {name: "Storage system"},
-  cron: {name: "Job and Cron scheduling"},
-  serverless: {name:"Serverless"},
-  oss: {name: "Open-Source Software"},
-  selfhosted: {name: "Self-hosted"},
-  cloud: {name: "Cloud"},
+  storage: { name: "Storage system" },
+  cron: { name: "Job and Cron scheduling" },
+  serverless: { name: "Serverless" },
+  oss: { name: "Open-Source Software" },
+  selfhosted: { name: "Self-hosted" },
+  cloud: { name: "Cloud" },
+  analytics: { name: "Analytics" },
+  cx: { name: "Customer Experience & Surveying" },
+  nocode: { name: "No-code tool" },
+  documentation: { name: "Documentation" },
+  observability: { name: "Observability (APM, monitoring)" },
+  graphql: { name: "GraphQL" }
 };
 
 export interface Project {
@@ -68,7 +77,7 @@ export const projects: Project[] = [
     id: "clerk",
     name: "Clerk",
     description: "Authentication-as-a-service for developers",
-    categoryIds: ["auth"],
+    categoryIds: ["auth", "paas"],
     website: "https://clerk.dev",
     imgPath: "/clerk.png",
   },
@@ -150,7 +159,7 @@ Stay in your development flow, and stop stitching things together.
       `
 Beautiful, open document signing tools you can build upon.
       `,
-    categoryIds: ["oss", "selfhosted"],
+    categoryIds: ["oss", "selfhosted", "cloud", "saas"],
     website: "https://documenso.com",
     imgPath: "/documenso.png",
   },
@@ -169,8 +178,115 @@ Open-sourced link management for modern marketing teams. Bit.ly alternative.
     id: "tinybird",
     name: "Tinybird",
     description: "Tinybird is the modern real-time data platform for developers and data teams. Ingest data, query it with SQL, and instantly publish the results as high-concurrency, low-latency APIs.",
-    categoryIds: ["api", "iaas", "paas", "cloud"],
+    categoryIds: ["api", "paas", "cloud"],
     website: "https://tinybird.com",
     imgPath: "/tinybird.jpeg",
+  },
+  {
+    id: "mailgun",
+    name: "Mailgun",
+    description: "Powerful APIs that enable you to send, receive, and track email effortlessly. Supports transactional and bulk emails",
+    categoryIds: ["api", "paas", "cloud", "email"],
+    website: "https://mailgun.com",
+    imgPath: "/mailgun.svg",
+  },
+  {
+    id: "formbricks",
+    name: "Formbricks",
+    description: "Survey any segment. No coding required. Survey granular user segments at any point in the user journey. Gather up to 6x more insights with targeted micro-surveys. All open-source.",
+    categoryIds: ["paas", "cloud", "cx"],
+    website: "https://formbricks.com",
+    imgPath: "/formbricks.png",
+  },
+  {
+    id: "calcom",
+    name: "Cal.com",
+    description: "The event-juggling scheduler for everyone. Focus on meeting, not making meetings. Free for individuals.",
+    categoryIds: ["saas", "cloud", "selfhosted"],
+    website: "https://cal.com",
+    imgPath: "/calcom.svg",
+  },
+  {
+    id: "webstudio",
+    name: "Webstudio",
+    description: "Open-source alternative to Webflow. No-code website builder.",
+    categoryIds: ["saas", "selfhosted", "cloud", "nocode"],
+    website: "https://webstudio.is/",
+    imgPath: "/webstudio.svg"
+  },
+  {
+    id: "mintlify",
+    name: "Mintlify",
+    description: `
+Beautiful documentation that converts users.
+Build the documentation you've always wanted. Beautiful out of the box, easy to maintain, and optimized for user engagement.
+    `,
+    categoryIds: ["saas", "documentation", "cloud"],
+    website: "https://mintlify.com",
+    imgPath: "/mintlify.svg"
+  },
+  {
+    id: "coolify",
+    name: "Coolify",
+    description: `
+Made self-hosting simple.
+An open-source & self-hostable Heroku / Netlify alternative (and even more).
+  `,
+    categoryIds: ["selfhosted", "hosting", "iaas"],
+    website: "https://coolify.io/",
+    imgPath: "/coolify.png",
+  },
+  {
+    id: "dokku",
+    name: "Dokku",
+    description: `
+An open source PAAS alternative to Heroku.
+Dokku helps you build and manage the lifecycle of applications from building to scaling
+`,
+    categoryIds: ["selfhosted", "hosting", "iaas"],
+    website: "https://dokku.com/",
+    imgPath: "/dokku.svg"
+  },
+  {
+    id: "internal",
+    name: "Internal.io",
+    description: `
+Build apps in 5 minutes.
+No-code required, no complicated setup. Create database apps and other internal tools for teams to create, read and update data.
+  `,
+    categoryIds: ["nocode", "saas", "cloud"],
+    website: "https://www.internal.io/",
+    imgPath: "/internal.svg"
+  },
+  {
+    id: "hasura",
+    name: "Hasura",
+    description: `
+  Instant GraphQL on all your data
+ modern apps & APIs 10x faster.
+ in Authorization & Caching.
+ fast GraphQL & REST APIs.
+Open source.
+  `,
+    categoryIds: ["paas", "cloud", "oss", "api", "auth", "graphql"],
+    website: "https//hasura.io",
+    imgPath: "/hasura.svg"
+  },
+  {
+    id: "appsmith",
+    name: "Appsmith",
+    description: `
+Build internal tools 10X faster, ship in clicks
+Easily connect to popular databases and APIs
+
+Quickly build UI with ready React-powered widgets
+
+Customize and extend functionality with code
+
+Deploy reliably, share with end-users securely
+  `,
+    categoryIds: ["saas", "cloud", "oss", "nocode"],
+    website: "https://www.appsmith.com/",
+    imgPath: "/appsmith.png"
   }
-];
+]; 
