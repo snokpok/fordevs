@@ -1,5 +1,3 @@
-import { InputDescription } from "@mantine/core/lib/Input/InputDescription/InputDescription";
-
 interface Category {
   name: string;
 }
