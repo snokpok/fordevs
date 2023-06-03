@@ -119,6 +119,7 @@ export const Gallery = (props: { projects: Project[] }) => {
         {displayedProjects.map((project) => {
           return (
             <ProjectCard
+              key={project.id}
               project={project}
             />
           );
