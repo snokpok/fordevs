@@ -15,14 +15,6 @@ const Header = () => {
   )
 }
 
-const KbdTips = () => {
-  return (
-    <div>
-      <p className="text-gray-500 text-xs italic leading-7">Press <Kbd>⌘</Kbd> + <Kbd>Left Mouse</Kbd> to open any project{"'"}s website in another tab.</p>
-    </div>
-  )
-}
-
 const Footer = () => {
   return (
     <div className="flex items-center gap-2">
@@ -37,7 +29,7 @@ const Footer = () => {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col justify-between items-center p-10">
+    <main className="flex min-h-screen overflow-clip flex-col justify-between items-center p-10">
       <div className="flex flex-col mb-4">
         <div className="flex self-end mx-10">
           <Link href={"https://github.com/snokpok/fordevs"} passHref target="_blank" className="hover:animate-pulse">
@@ -46,7 +38,6 @@ export default function Home() {
         </div>
         <div className="text-center">
           <Header />
-          {/*<KbdTips />*/}
           <br />
           <Gallery projects={projects} />
         </div>

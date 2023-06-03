@@ -5,20 +5,18 @@ import { Project } from "../common/data";
 import Image from "next/image";
 import Link from "next/link";
 import Fuse from "fuse.js";
-import {ArrowTopRightIcon } from "@radix-ui/react-icons";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { useKeyboard } from "@/hooks/use-keyboard";
 
 const ProjectCard = (props: {
-  imgPath: string;
-  name: string;
-  websiteUrl: string;
+  project: Project
 }) => {
   const { currentKey } = useKeyboard()
   const pressingCmd = currentKey === "Meta";
   const [mouseOn, setMouseOn] = useState(false);
 
   return (
-    <Link href={props.websiteUrl} passHref target="_blank">
+    <Link href={props.project.website} passHref target="_blank">
       <button className={`cursor-pointer`} onMouseEnter={() => {
         setMouseOn(true)
       }} onMouseLeave={() => {
@@ -34,13 +32,13 @@ const ProjectCard = (props: {
             )
           }
           <Image
-            src={props.imgPath}
+            src={props.project.imgPath}
             style={{ objectFit: "contain" }}
-            alt={`${props.name}'s logo`}
+            alt={`${props.project.name}'s logo`}
             width={50}
             height={50}
           />
-          <p className="p-4 font-bold">{props.name}</p>
+          <p className="p-4 font-bold">{props.project.name}</p>
         </div>
       </button>
     </Link>
@@ -94,8 +92,8 @@ export const Gallery = (props: { projects: Project[] }) => {
           onChange={(ev) => {
             setSearchTerm(ev.target.value);
           }}
-          placeholder="e.g Vercel"
-          className="flex items-center py-2 px-4 bg-gray-700 border border-gray-600 outline-2 focus:outline outline-gray-500 w-min rounded-md"
+          placeholder="e.g auth"
+          className="flex items-center py-2 px-4 bg-gray-700 border border-gray-600 outline-2 focus:outline outline-gray-500 w-64 rounded-md"
           ref={searchBarRef}
           onFocus={() => {
             setSearchFocused(true)
@@ -121,10 +119,7 @@ export const Gallery = (props: { projects: Project[] }) => {
         {displayedProjects.map((project) => {
           return (
             <ProjectCard
-              imgPath={project.imgPath || ""}
-              name={project.name}
-              key={project.id}
-              websiteUrl={project.website || ""}
+              project={project}
             />
           );
         })}

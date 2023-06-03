@@ -72,7 +72,7 @@ export const projects: Project[] = [
     id: "resend",
     name: "Resend",
     description:
-      "Developer-friendly platform and tools that allows devs to send transactional emails at scale",
+      "Developer-friendly platform and tools that allows devs to send transactional emails at scale. Email API for developers.",
     categoryIds: ["paas", "email"],
     website: "https://resend.com",
     imgPath: "/resend.jpeg",
