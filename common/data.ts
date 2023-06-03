@@ -1,3 +1,6 @@
+import { IM_Fell_Great_Primer } from "next/font/google";
+import { isEmptyBindingPattern } from "typescript";
+
 interface Category {
   name: string;
 }
@@ -23,8 +26,11 @@ export const categories: Record<string, Category> = {
   cx: { name: "Customer Experience & Surveying" },
   nocode: { name: "No-code tool" },
   documentation: { name: "Documentation" },
-  observability: { name: "Observability (APM, monitoring)" },
-  graphql: { name: "GraphQL" }
+  observability: { name: "Observability" },
+  apm: { name: "Application Performance Monitoring (APM)" },
+  graphql: { name: "GraphQL" },
+  testing: { name: "Testing" },
+  sdk: { name: "Developer SDK" },
 };
 
 export interface Project {
@@ -286,5 +292,72 @@ Deploy reliably, share with end-users securely
     categoryIds: ["saas", "cloud", "oss", "nocode"],
     website: "https://www.appsmith.com/",
     imgPath: "/appsmith.png"
+  },
+  {
+    id: "emailable",
+    name: "Emailable",
+    description: `
+The most accurate & secure email checker.
+Sending emails is not enough. You need to have them delivered. Improve your deliverability and email marketing campaign ROI with the most reliable and affordable email checker.
+    `,
+    categoryIds: ["email", "cloud", "saas"],
+    website: "https://emailable.com/",
+    imgPath: "/emailable.avif"
+  },
+  {
+    id: "sentry",
+    name: "Sentry",
+    description: `
+Take action on broken lines of code, crashes, and busted API calls with the only
+developer-first app monitoring platform built to give you answers - not clues.
+Nearly 4M developers and 90K organizations rely on Sentry to see what
+actually matters, solve what's urgent faster, and learn continuously about their code.
+    `,
+    website: "https://sentry.io/welcome/",
+    categoryIds: ["paas", "oss", "cloud", "observability", "apm"],
+    imgPath: "/sentry.svg"
+  },
+  {
+    id: "descope",
+    name: "Descope",
+    description: `
+Drag-and-drop authentication for any app
+Onboard your users like it’s 2023. Add passwordless authentication and user management to your app with a few lines of code. Choose from our drag-and-drop workflows, SDKs, or APIs.
+    `,
+    website: "https://www.descope.com/",
+    categoryIds: ["auth", "paas", "nocode"],
+    imgPath: "/descope.png",
+  },
+  {
+    id: "gitwonk",
+    name: "Gitwonk",
+    description: `
+Write, Collaborate, Publish.
+GitWonk is an open-source technical documentation tool, designed and built focusing on the developer experience.
+    `,
+    website: "https://gitwonk.com/",
+    categoryIds: ["documentation", "oss", "saas"],
+    imgPath: "/gitwonk.jpeg",
+  },
+  {
+    id: "ddosify",
+    name: "Ddosify",
+    description: `
+Distributed Observability Platform; load-testing, latency testing platform
+    `,
+    website: "https://ddosify.com/",
+    categoryIds: ["observability", "testing", "oss", "selfhosted", "cloud"],
+    imgPath: "/ddosify.svg"
+  },
+  {
+    id: "lucia",
+    name: "Lucia",
+    description: `
+    Authentication,
+simple and clean
+Lucia is a simple and flexible user and session management library that provides an abstraction layer between your app and your database. It's bare-bones by design, keeping everything easy to use and understand.`,
+    website: "https://lucia-auth.com/?",
+    categoryIds: ["auth", "oss", "sdk"],
+    imgPath: "/lucia.svg"
   }
 ]; 

@@ -38,7 +38,7 @@ const Footer = () => {
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col justify-between items-center p-10">
-      <div className="flex flex-col">
+      <div className="flex flex-col mb-4">
         <div className="flex self-end mx-10">
           <Link href={"https://github.com/snokpok/fordevs"} passHref target="_blank" className="hover:animate-pulse">
             <GitHubLogoIcon width={30} height={30}/>
